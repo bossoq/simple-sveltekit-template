@@ -31,5 +31,8 @@
 		"typescript": "~4.5.4"
 	},
 	"type": "module",
-	"license": "MIT"
+	"license": "MIT",
+	"dependencies": {
+		"svelte-share-buttons-component": "^1.5.0"
+	}
 }
