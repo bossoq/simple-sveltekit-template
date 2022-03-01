@@ -14,7 +14,7 @@
   const menuItems = [
     { name: 'Made by bossoq', url: 'https://github.com/bossoq/simple-sveltekit-template' }
   ]
-  const imageUrl = null
+  const imageUrl = `${url}/screenshot.jpg`
   const gtagId = null
   const themeIcons = ['🌞 Toggle Light mode', '🌙 Toggle Dark mode']
 </script>
