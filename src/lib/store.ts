@@ -16,6 +16,7 @@ const storeSettings = () => {
 }
 
 export const darkTheme: Writable<boolean> = writable(storage.darkTheme ?? false)
+export const modalViewed: Writable<boolean> = writable(false)
 
 darkTheme.subscribe((value) => {
   storage.darkTheme = value

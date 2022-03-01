@@ -19,4 +19,4 @@ Build a web app with Sveltekit, quickly.
 - [x] Responsive design (Mobile first)
 - [x] Linting with ESLint
 - [x] Toggleable Dark Mode
-- [ ] Modal view (About/Credits)
+- [x] Modal view (About/Credits)
