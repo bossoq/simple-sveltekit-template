@@ -1,10 +1,27 @@
 <script lang="ts">
-  import { modalViewed } from '$lib/store'
+  import { modalClass, modalViewed } from '$lib/store'
   import { clickOutside } from '$lib/clickOutside'
+
+  const handleModalClass = (e: Event, disabled: boolean = false) => {
+    e.preventDefault()
+    if (disabled && !$modalViewed) {
+      return
+    }
+    if ($modalViewed) {
+      $modalViewed = false
+      $modalClass = 'animate-fadeOut'
+      setTimeout(() => {
+        $modalClass = 'hidden'
+      }, 400)
+    } else {
+      $modalViewed = true
+      $modalClass = 'animate-fadeIn'
+    }
+  }
 </script>
 
 <div
-  class="fixed z-20 inset-0 overflow-y-auto"
+  class="fixed z-20 inset-0 overflow-y-auto {$modalClass}"
   aria-labelledby="modal-title"
   role="dialog"
   aria-modal="true"
@@ -12,21 +29,18 @@
   <div
     class="flex items-end justify-center min-h-screen pt-4 px-4 pb-20 text-center sm:block sm:p-0"
   >
-    <div
-      class="fixed inset-0 bg-gray-500 bg-opacity-75 ease-in-out transition-opacity"
-      aria-hidden="true"
-    >
-      <span class="hidden sm:inline-block sm:align-middle sm:h-screen" aria-hidden="true"
+    <div class="fixed inset-0 bg-gray-500 bg-opacity-75" aria-hidden="true">
+      <span class="hidden sm:inline-block sm:align-middle h-1/2 sm:h-screen" aria-hidden="true"
         >&#8203;</span
       >
       <div
         class="inline-block align-bottom bg-white rounded-lg text-left overflow-hidden shadow-xl transform transition-all sm:my-8 sm:align-middle sm:max-w-lg sm:w-full"
         use:clickOutside
-        on:click_outside={() => ($modalViewed = false)}
+        on:click_outside={(e) => handleModalClass(e, true)}
       >
         <p
           class="absolute my-2 mx-3 sm:my-3 sm:mx-4 right-0 top-0 text-white cursor-pointer text-black dark:text-white"
-          on:click={() => ($modalViewed = !$modalViewed)}
+          on:click={handleModalClass}
         >
           x
         </p>
