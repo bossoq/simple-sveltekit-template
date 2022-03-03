@@ -1,21 +1,9 @@
 <script lang="ts">
-  import { modalClass, modalViewed } from '$lib/store'
+  import { modalViewed } from '$lib/store'
+  import { handleModalClass } from '$lib/handleModal'
   interface Item {
     name: string
     url: string
-  }
-  const handleModalClass = (e: Event) => {
-    e.preventDefault()
-    if ($modalViewed) {
-      $modalViewed = false
-      $modalClass = 'animate-fadeOut'
-      setTimeout(() => {
-        $modalClass = 'hidden'
-      }, 400)
-    } else {
-      $modalViewed = true
-      $modalClass = 'animate-fadeIn'
-    }
   }
 
   export let items: Item[] = []
@@ -29,7 +17,7 @@
   {/each}
   <p
     class="bg-sky-800 dark:bg-sky-200 rounded-full w-6 h-6 sm:w-8 sm:h-8 p-2 text-white dark:text-black text-center my-1 py-1 cursor-pointer"
-    on:click={handleModalClass}
+    on:click={(e) => handleModalClass(e, $modalViewed)}
   >
     ?
   </p>

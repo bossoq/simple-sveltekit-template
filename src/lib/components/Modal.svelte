@@ -1,23 +1,7 @@
 <script lang="ts">
   import { modalClass, modalViewed } from '$lib/store'
   import { clickOutside } from '$lib/clickOutside'
-
-  const handleModalClass = (e: Event, disabled: boolean = false) => {
-    e.preventDefault()
-    if (disabled && !$modalViewed) {
-      return
-    }
-    if ($modalViewed) {
-      $modalViewed = false
-      $modalClass = 'animate-fadeOut'
-      setTimeout(() => {
-        $modalClass = 'hidden'
-      }, 400)
-    } else {
-      $modalViewed = true
-      $modalClass = 'animate-fadeIn'
-    }
-  }
+  import { handleModalClass } from '$lib/handleModal'
 </script>
 
 <div
@@ -36,11 +20,11 @@
       <div
         class="inline-block align-bottom bg-white rounded-lg text-left overflow-hidden shadow-xl transform transition-all sm:my-8 sm:align-middle sm:max-w-lg sm:w-full"
         use:clickOutside
-        on:click_outside={(e) => handleModalClass(e, true)}
+        on:click_outside={(e) => handleModalClass(e, $modalViewed, true)}
       >
         <p
           class="absolute my-2 mx-3 sm:my-3 sm:mx-4 right-0 top-0 text-white cursor-pointer text-black dark:text-white"
-          on:click={handleModalClass}
+          on:click={(e) => handleModalClass(e, $modalViewed)}
         >
           x
         </p>
