@@ -6,7 +6,7 @@
   import Social from '$lib/components/Social.svelte'
   import ThemeSelector from '$lib/components/ThemeSelector.svelte'
   import Modal from '$lib/components/Modal.svelte'
-  import { darkTheme } from '$lib/store'
+  import { darkTheme, modalViewed } from '$lib/store'
 
   const url = 'https://simplesveltekit.vercel.app'
   const title = 'Simple Sveltekit Template'
@@ -26,6 +26,8 @@
 <main class={$darkTheme && 'dark'}>
   <ThemeSelector {themeIcons} />
   <Menu items={menuItems} />
-  <Modal />
+  {#if $modalViewed}
+    <Modal />
+  {/if}
   <slot />
 </main>

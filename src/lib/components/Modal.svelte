@@ -1,14 +1,16 @@
 <script lang="ts">
-  import { modalClass, modalViewed } from '$lib/store'
+  import { fade } from 'svelte/transition'
+  import { modalViewed } from '$lib/store'
   import { clickOutside } from '$lib/clickOutside'
   import { handleModalClass } from '$lib/handleModal'
 </script>
 
 <div
-  class="fixed z-20 inset-0 overflow-y-auto {$modalClass}"
+  class="fixed z-20 inset-0 overflow-y-auto"
   aria-labelledby="modal-title"
   role="dialog"
   aria-modal="true"
+  transition:fade
 >
   <div
     class="flex items-end justify-center min-h-screen pt-4 px-4 pb-20 text-center sm:block sm:p-0"
@@ -23,7 +25,7 @@
         on:click_outside={(e) => handleModalClass(e, $modalViewed, true)}
       >
         <p
-          class="absolute my-2 mx-3 sm:my-3 sm:mx-4 right-0 top-0 text-white cursor-pointer text-black dark:text-white"
+          class="absolute my-2 mx-3 sm:my-3 sm:mx-4 right-0 top-0 cursor-pointer text-black dark:text-white"
           on:click={(e) => handleModalClass(e, $modalViewed)}
         >
           x
