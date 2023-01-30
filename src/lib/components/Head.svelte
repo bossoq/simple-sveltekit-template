@@ -3,7 +3,7 @@
   export let description: string
   export let url: string
   export let imageUrl: string
-  export let gtagId: string
+  export let gtagId: string | null
 </script>
 
 <svelte:head>

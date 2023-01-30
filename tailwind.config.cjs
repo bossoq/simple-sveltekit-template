@@ -1,3 +1,6 @@
+/** @type {import('tailwindcss').Config} */
+const plugin = require('tailwindcss/plugin')
+
 module.exports = {
   content: ['./src/**/*.{html,js,svelte,ts}'],
   darkMode: 'class',
@@ -19,5 +22,17 @@ module.exports = {
       }
     }
   },
-  plugins: []
+  plugins: [
+    plugin(function ({ addUtilities }) {
+      addUtilities({
+        '.hide-scrollbar': {
+          'scrollbar-width': 'none',
+          '-ms-overflow-style': 'none'
+        },
+        '.hide-scrollbar::-webkit-scrollbar': {
+          display: 'none'
+        }
+      })
+    })
+  ]
 }

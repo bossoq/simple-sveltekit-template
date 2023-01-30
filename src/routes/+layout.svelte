@@ -23,7 +23,7 @@
 <Head {title} {description} {url} {imageUrl} {gtagId} />
 <Kofi name="bossoq" label="Buy me Coffee" />
 <Social {url} {title} />
-<main class={$darkTheme && 'dark'}>
+<main class={$darkTheme ? 'dark' : ''}>
   <ThemeSelector {themeIcons} />
   <Menu items={menuItems} />
   {#if $modalViewed}

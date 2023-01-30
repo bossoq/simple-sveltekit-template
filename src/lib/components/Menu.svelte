@@ -15,6 +15,7 @@
   {#each items as { name, url }}
     <a href={url} class="select-none p-2 mr-2" target="_blank" rel="noreferrer">{name}</a>
   {/each}
+  <!-- svelte-ignore a11y-click-events-have-key-events -->
   <p
     class="bg-sky-800 dark:bg-sky-200 rounded-full w-6 h-6 sm:w-8 sm:h-8 p-2 text-white dark:text-black text-center my-1 py-1 cursor-pointer"
     on:click={(e) => handleModalClass(e, $modalViewed)}

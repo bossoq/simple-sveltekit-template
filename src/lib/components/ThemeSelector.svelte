@@ -4,6 +4,7 @@
 </script>
 
 <div class="text-xs sm:text-base fixed top-0 left-0 p-2 z-10 text-white dark:text-black">
+  <!-- svelte-ignore a11y-click-events-have-key-events -->
   <p
     on:click={() => ($darkTheme = !$darkTheme)}
     class="cursor-pointer select-none p-2 bg-sky-800 dark:bg-sky-200 rounded"

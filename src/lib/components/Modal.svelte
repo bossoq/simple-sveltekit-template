@@ -24,6 +24,7 @@
         use:clickOutside
         on:click_outside={(e) => handleModalClass(e, $modalViewed, true)}
       >
+        <!-- svelte-ignore a11y-click-events-have-key-events -->
         <p
           class="absolute my-2 mx-3 sm:my-3 sm:mx-4 right-0 top-0 cursor-pointer text-black dark:text-white"
           on:click={(e) => handleModalClass(e, $modalViewed)}
