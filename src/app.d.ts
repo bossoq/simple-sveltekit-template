@@ -1,10 +1,17 @@
-/// <reference types="@sveltejs/kit" />
-
-// See https://kit.svelte.dev/docs/types#the-app-namespace
+// See https://kit.svelte.dev/docs/types#app
 // for information about these interfaces
-declare namespace App {
-	// interface Locals {}
-	// interface Platform {}
-	// interface Session {}
-	// interface Stuff {}
+declare global {
+  namespace App {
+    // interface Error {}
+    // interface Locals {}
+    // interface PageData {}
+    // interface Platform {}
+  }
+  namespace svelte.JSX {
+    interface HTMLProps<T> {
+      onclick_outside?: (event: Event) => void
+    }
+  }
 }
+
+export {}

@@ -24,6 +24,7 @@
         use:clickOutside
         on:click_outside={(e) => handleModalClass(e, $modalViewed, true)}
       >
+        <!-- svelte-ignore a11y-click-events-have-key-events -->
         <p
           class="absolute my-2 mx-3 sm:my-3 sm:mx-4 right-0 top-0 cursor-pointer text-black dark:text-white"
           on:click={(e) => handleModalClass(e, $modalViewed)}
@@ -44,6 +45,15 @@
               <hr class="my-2" />
               <div class="mt-2">
                 <h3 class="text-base font-medium underline">Changelog</h3>
+                <h4 class="text-sm font-medium text-left mt-2">v1.2.0</h4>
+                <div class="flex flex-col mt-1 w-full justify-between text-left">
+                  <p class="text-sm text-gray-500 dark:text-white">Welcome SvelteKit 1.0</p>
+                  <div class="text-sm text-gray-500 dark:text-white">
+                    <ul class="list-disc pl-4">
+                      <li>Introduce SvelteKit 1.0 with Vite ✌️</li>
+                    </ul>
+                  </div>
+                </div>
                 <h4 class="text-sm font-medium text-left mt-2">v1.1.0</h4>
                 <div class="flex flex-col mt-1 w-full justify-between text-left">
                   <p class="text-sm text-gray-500 dark:text-white">Improve Code Redundancy</p>
